@@ -1,0 +1,351 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+
+.monaco-action-bar .action-item {
+	display: block;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+	/* DO NOT REMOVE - this is the key to preventing the ghosting icon bug in Chrome 42 */
+}
+
+.monaco-action-bar .action-item.disabled {
+	cursor: default;
+}
+
+.monaco-action-bar .action-item .icon,
+.monaco-action-bar .action-item .codicon {
+	display: block;
+}
+
+.monaco-action-bar .action-item .codicon {
+	display: flex;
+	align-items: center;
+	width: 16px;
+	height: 16px;
+}
+
+
+.monaco-action-bar .action-item.disabled .action-label,
+.monaco-action-bar .action-item.disabled .action-label::before,
+.monaco-action-bar .action-item.disabled .action-label:hover {
+	color: var(--vscode-disabledForeground);
+}
+
+.monaco-action-bar.vertical .action-item {
+	display: block;
+}
+
+.monaco-action-bar .action-item .action-label.separator {
+	width: 1px;
+	height: 16px;
+	margin: 5px 4px !important;
+	cursor: default;
+	min-width: 1px;
+	padding: 0;
+	background-color: #bbb;
+}
+
+/* Action Items */
+.monaco-action-bar .action-item.select-container {
+	overflow: hidden;
+	/* somehow the dropdown overflows its container, we prevent it here to not push */
+	flex: 1;
+	max-width: 170px;
+	min-width: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+}
+
+.monaco-action-bar .action-item.action-dropdown-item {
+	display: flex;
+}
+
+.monaco-action-bar .action-item.action-dropdown-item>.action-dropdown-item-separator {
+	display: flex;
+	align-items: center;
+	cursor: default;
+}
+
+.monaco-action-bar .action-item.action-dropdown-item>.action-dropdown-item-separator>div {
+	width: 1px;
+}
+
+
+.activitybar>.content >.monaco-action-bar .action-item {
+	display: block;
+	position: relative;
+}
+
+.activitybar>.content .composite-bar>.monaco-action-bar .action-item::before,
+.activitybar>.content .composite-bar>.monaco-action-bar .action-item::after {
+	position: absolute;
+	content: '';
+	width: 48px;
+	height: 2px;
+	display: none;
+	background-color: transparent;
+	transition-property: background-color;
+	transition-duration: 0ms;
+	transition-delay: 100ms;
+}
+
+.activitybar>.content.dragged-over .composite-bar>.monaco-action-bar .action-item::before,
+.activitybar>.content.dragged-over .composite-bar>.monaco-action-bar .action-item::after {
+	display: block;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item::before {
+	top: 1px;
+	margin-top: -2px;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item::after {
+	bottom: 1px;
+	margin-bottom: -2px;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:first-of-type::before {
+	top: 2px;
+	margin-top: -2px;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:last-of-type::after {
+	bottom: 2px;
+	margin-bottom: -2px;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top::before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top::after,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom::before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom::after {
+	transition-delay: 0s;
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom+.action-item::before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top::before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:last-of-type.bottom::after,
+.activitybar>.content.dragged-over-head>.composite-bar>.monaco-action-bar .action-item:first-of-type::before,
+.activitybar>.content.dragged-over-tail>.composite-bar>.monaco-action-bar .action-item:last-of-type::after {
+	background-color: var(--insert-border-color);
+}
+
+
+.activitybar>.content >.monaco-action-bar .action-item.active .action-label.codicon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.codicon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.codicon {
+	color: var(--vscode-activityBar-foreground) !important;
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.active .action-label.uri-icon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.uri-icon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.uri-icon {
+	background-color: var(--vscode-activityBar-foreground) !important;
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	height: 100%;
+	width: 0;
+	border-left: 2px solid;
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before {
+	top: 0;
+	height: 100%;
+}
+
+
+.activitybar>.content >.monaco-action-bar .action-item.clicked:focus:before {
+	border-left: none !important;
+	/* no focus feedback when using mouse */
+}
+
+.activitybar.left>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+	left: 0;
+}
+
+.activitybar.right>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+	right: 0;
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
+	color: var(--vscode-activityBar-foreground) !important;
+}
+
+.activitybar>.content >.monaco-action-bar .action-item:active .profile-text-overlay,
+.activitybar>.content >.monaco-action-bar .action-item:focus .profile-text-overlay,
+.activitybar>.content >.monaco-action-bar .action-item:hover .profile-text-overlay {
+	color: var(--vscode-activityBar-foreground);
+}
+
+.activitybar .action-item:focus {
+	outline: 0 !important;
+	/* activity bar indicates focus custom */
+}
+
+.activitybar>.content >.monaco-action-bar .action-item {
+	display: block;
+	position: relative
+}
+
+.activitybar>.content .composite-bar>.monaco-action-bar .action-item:after,
+.activitybar>.content .composite-bar>.monaco-action-bar .action-item:before {
+	background-color: transparent;
+	content: "";
+	display: none;
+	height: 2px;
+	position: absolute;
+	transition-delay: .1s;
+	transition-duration: 0ms;
+	transition-property: background-color;
+	width: 48px
+}
+
+.activitybar>.content.dragged-over .composite-bar>.monaco-action-bar .action-item:after,
+.activitybar>.content.dragged-over .composite-bar>.monaco-action-bar .action-item:before {
+	display: block
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:before {
+	margin-top: -2px;
+	top: 1px
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:after {
+	bottom: 1px;
+	margin-bottom: -2px
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:first-of-type:before {
+	margin-top: -2px;
+	top: 2px
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:last-of-type:after {
+	bottom: 2px;
+	margin-bottom: -2px
+}
+
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom:after,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom:before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top:after,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top:before {
+	transition-delay: 0s
+}
+
+.activitybar>.content.dragged-over-head>.composite-bar>.monaco-action-bar .action-item:first-of-type:before,
+.activitybar>.content.dragged-over-tail>.composite-bar>.monaco-action-bar .action-item:last-of-type:after,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.bottom+.action-item:before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item.top:before,
+.activitybar>.content>.composite-bar>.monaco-action-bar .action-item:last-of-type.bottom:after {
+	background-color: var(--insert-border-color)
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.active .action-label.codicon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.codicon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.codicon {
+	color: var(--vscode-activityBar-foreground) !important
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.active .action-label.uri-icon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.uri-icon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.uri-icon {
+	background-color: var(--vscode-activityBar-foreground) !important
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+	border-left: 2px solid;
+	content: "";
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 0;
+	z-index: 1
+}
+
+.hc-black .activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.hc-black .activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+	border-color: var(--vscode-focusBorder)
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before {
+	height: 100%;
+	top: 0
+}
+
+.hc-black .activitybar>.content >.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator.action-item,
+.hc-light .activitybar>.content >.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator {
+	display: none
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.clicked:focus:before {
+	border-left: none !important
+}
+
+.activitybar.left>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+	left: 0
+}
+
+.activitybar.right>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+	right: 0
+}
+
+.hc-black .activitybar.left>.content >.monaco-action-bar .action-item:focus:before,
+.hc-black .activitybar.right>.content >.monaco-action-bar .action-item:focus:before,
+.hc-light .activitybar.left>.content >.monaco-action-bar .action-item:focus:before,
+.hc-light .activitybar.right>.content >.monaco-action-bar .action-item:focus:before {
+	outline: none
+}
+
+.activitybar>.content >.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content >.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content >.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
+	color: var(--vscode-activityBar-foreground) !important
+}
+
+.activitybar>.content >.monaco-action-bar .action-item:active .profile-text-overlay,
+.activitybar>.content >.monaco-action-bar .action-item:focus .profile-text-overlay,
+.activitybar>.content >.monaco-action-bar .action-item:hover .profile-text-overlay {
+	color: var(--vscode-activityBar-foreground)
+}
+
+.activitybar .action-item:focus {
+	outline: 0 !important
+}
+
+.activitybar>.content >.monaco-action-bar .action-label {
+    box-sizing: border-box;
+    display: flex;
+    height: 48px;
+    margin-right: 0;
+    overflow: hidden;
+    position: relative;
+    width: 48px;
+    z-index: 1
+}
+
+.activitybar>.content >.monaco-action-bar .action-label:not(.codicon) {
+    font-size: 15px;
+    line-height: 40px;
+    padding: 0 0 0 48px
+}
+
+.activitybar>.content >.monaco-action-bar .action-label.codicon {
+    align-items: center;
+    font-size: 24px;
+    justify-content: center
+}

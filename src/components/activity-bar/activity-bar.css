@@ -1,0 +1,197 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.part.activitybar {
+    width: 48px;
+    height: 100%;
+    background-color: rgb(24,24,24);
+    position: fixed;
+    z-index: 1;
+}
+
+.activitybar.bordered::before {
+    content: '';
+    float: left;
+    position: absolute;
+    box-sizing: border-box;
+    height: 100%;
+    width: 0px;
+    border-color: rgb(24,24,24);
+}
+
+.activitybar.left.bordered::before {
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+/* .activitybar.right.bordered::before {
+    left: 0;
+    border-left-style: solid;
+    border-left-width: 1px;
+} */
+
+.activitybar>.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/** Viewlet Switcher */
+
+.activitybar>.content .monaco-action-bar {
+    text-align: left;
+    background-color: inherit;
+}
+
+.activitybar>.content>.composite-bar {
+    margin-bottom: auto;
+}
+
+/** Menu Bar */
+
+.activitybar .menubar {
+    width: 100%;
+    height: 35px;
+}
+
+.activitybar .menubar.compact .toolbar-toggle-more {
+    width: 100%;
+    height: 35px;
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge {
+    z-index: 2
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
+    z-index: 1
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator {
+    pointer-events: none
+}
+
+.monaco-workbench.border .activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator {
+    left: -2px
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge .badge-content {
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 600;
+    height: 16px;
+    line-height: 16px;
+    min-width: 8px;
+    padding: 0 4px;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: 24px
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge .profile-icon-overlay {
+    background-color: var(--vscode-activityBar-background);
+    position: absolute;
+    right: 6px;
+    top: 27px
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge .profile-icon-overlay .codicon {
+    color: var(--vscode-activityBar-inactiveForeground)
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge .profile-text-overlay {
+    background-color: var(--vscode-profileBadge-background);
+    border: 2px solid var(--vscode-activityBar-background);
+    border-radius: 7px;
+    color: var(--vscode-profileBadge-foreground);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 10px;
+    padding: 2px 3px;
+    position: absolute;
+    right: 6px;
+    top: 24px
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge .codicon.badge-content {
+    font-size: 12px;
+    font-weight: unset;
+    justify-content: center;
+    padding: 0
+}
+
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge .codicon.badge-content:before {
+    text-align: center;
+    vertical-align: baseline
+}
+
+.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .badge,.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
+    left: auto;
+    right: 0
+}
+
+.part.activitybar {
+    height: 100%;
+    width: 48px
+}
+
+.activitybar.bordered:before {
+    border-color: inherit;
+    box-sizing: border-box;
+    content: "";
+    float: left;
+    height: 100%;
+    position: absolute;
+    width: 0
+}
+
+.activitybar.left.bordered:before {
+    border-right-style: solid;
+    border-right-width: 1px;
+    right: 0
+}
+
+.activitybar.right.bordered:before {
+    border-left-style: solid;
+    border-left-width: 1px;
+    left: 0
+}
+
+.activitybar>.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between
+}
+
+.activitybar>.content .monaco-action-bar {
+    background-color: inherit;
+    text-align: left
+}
+
+.activitybar>.content>.composite-bar {
+    margin-bottom: auto
+}
+
+.activitybar .menubar,.activitybar .menubar.compact .toolbar-toggle-more {
+    height: 35px;
+    width: 100%
+}
