@@ -2,10 +2,11 @@ import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
-import Header from "../components/starter/header/header";
-import Footer from "../components/starter/footer/footer";
+// import Header from "../components/starter/header/header";
+// import Footer from "../components/starter/footer/footer";
 
 import styles from "./styles.css?inline";
+import { ActivityBar } from "~/components/activity-bar/activity-bar";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -28,11 +29,10 @@ export default component$(() => {
   useStyles$(styles);
   return (
     <>
-      <Header />
-      <main>
+      <ActivityBar />
+      <main style="margin-left:48px; height: 100vh; overflow-y: auto;">
         <Slot />
       </main>
-      <Footer />
     </>
   );
 });

@@ -25,6 +25,7 @@ export const RouterHead = component$(() => {
         <link key={l.key} {...l} />
       ))}
 
+      <link href="/codicons/codicon.css" rel="stylesheet" />
       {head.styles.map((s) => (
         <style key={s.key} {...s.props} dangerouslySetInnerHTML={s.style} />
       ))}
