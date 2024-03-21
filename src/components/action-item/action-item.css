@@ -78,7 +78,7 @@
 }
 
 
-.activitybar>.content >.monaco-action-bar .action-item {
+.activitybar>.content>.monaco-action-bar .action-item {
 	display: block;
 	position: relative;
 }
@@ -137,20 +137,20 @@
 }
 
 
-.activitybar>.content >.monaco-action-bar .action-item.active .action-label.codicon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.codicon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.codicon {
+.activitybar>.content>.monaco-action-bar .action-item.active .action-label.codicon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .action-label.codicon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .action-label.codicon {
 	color: var(--vscode-activityBar-foreground) !important;
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.active .action-label.uri-icon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.uri-icon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.uri-icon {
+.activitybar>.content>.monaco-action-bar .action-item.active .action-label.uri-icon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .action-label.uri-icon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .action-label.uri-icon {
 	background-color: var(--vscode-activityBar-foreground) !important;
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
-.activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+.activitybar>.content>.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.activitybar>.content>.monaco-action-bar .action-item:focus .active-item-indicator:before {
 	content: "";
 	position: absolute;
 	z-index: 1;
@@ -160,34 +160,34 @@
 	border-left: 2px solid;
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before {
+.activitybar>.content>.monaco-action-bar .action-item.checked .active-item-indicator:before {
 	top: 0;
 	height: 100%;
 }
 
 
-.activitybar>.content >.monaco-action-bar .action-item.clicked:focus:before {
+.activitybar>.content>.monaco-action-bar .action-item.clicked:focus:before {
 	border-left: none !important;
 	/* no focus feedback when using mouse */
 }
 
-.activitybar.left>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+.activitybar.left>.content>.monaco-action-bar .action-item .active-item-indicator:before {
 	left: 0;
 }
 
-.activitybar.right>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+.activitybar.right>.content>.monaco-action-bar .action-item .active-item-indicator:before {
 	right: 0;
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
+.activitybar>.content>.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
 	color: var(--vscode-activityBar-foreground) !important;
 }
 
-.activitybar>.content >.monaco-action-bar .action-item:active .profile-text-overlay,
-.activitybar>.content >.monaco-action-bar .action-item:focus .profile-text-overlay,
-.activitybar>.content >.monaco-action-bar .action-item:hover .profile-text-overlay {
+.activitybar>.content>.monaco-action-bar .action-item:active .profile-text-overlay,
+.activitybar>.content>.monaco-action-bar .action-item:focus .profile-text-overlay,
+.activitybar>.content>.monaco-action-bar .action-item:hover .profile-text-overlay {
 	color: var(--vscode-activityBar-foreground);
 }
 
@@ -196,7 +196,7 @@
 	/* activity bar indicates focus custom */
 }
 
-.activitybar>.content >.monaco-action-bar .action-item {
+.activitybar>.content>.monaco-action-bar .action-item {
 	display: block;
 	position: relative
 }
@@ -254,20 +254,20 @@
 	background-color: var(--insert-border-color)
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.active .action-label.codicon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.codicon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.codicon {
+.activitybar>.content>.monaco-action-bar .action-item.active .action-label.codicon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .action-label.codicon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .action-label.codicon {
 	color: var(--vscode-activityBar-foreground) !important
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.active .action-label.uri-icon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .action-label.uri-icon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .action-label.uri-icon {
+.activitybar>.content>.monaco-action-bar .action-item.active .action-label.uri-icon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .action-label.uri-icon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .action-label.uri-icon {
 	background-color: var(--vscode-activityBar-foreground) !important
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
-.activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+.activitybar>.content>.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.activitybar>.content>.monaco-action-bar .action-item:focus .active-item-indicator:before {
 	border-left: 2px solid;
 	content: "";
 	height: 100%;
@@ -277,49 +277,49 @@
 	z-index: 1
 }
 
-.hc-black .activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before,
-.hc-black .activitybar>.content >.monaco-action-bar .action-item:focus .active-item-indicator:before {
+.hc-black .activitybar>.content>.monaco-action-bar .action-item.checked .active-item-indicator:before,
+.hc-black .activitybar>.content>.monaco-action-bar .action-item:focus .active-item-indicator:before {
 	border-color: var(--vscode-focusBorder)
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.checked .active-item-indicator:before {
+.activitybar>.content>.monaco-action-bar .action-item.checked .active-item-indicator:before {
 	height: 100%;
 	top: 0
 }
 
-.hc-black .activitybar>.content >.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator.action-item,
-.hc-light .activitybar>.content >.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator {
+.hc-black .activitybar>.content>.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator.action-item,
+.hc-light .activitybar>.content>.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator {
 	display: none
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.clicked:focus:before {
+.activitybar>.content>.monaco-action-bar .action-item.clicked:focus:before {
 	border-left: none !important
 }
 
-.activitybar.left>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+.activitybar.left>.content>.monaco-action-bar .action-item .active-item-indicator:before {
 	left: 0
 }
 
-.activitybar.right>.content >.monaco-action-bar .action-item .active-item-indicator:before {
+.activitybar.right>.content>.monaco-action-bar .action-item .active-item-indicator:before {
 	right: 0
 }
 
-.hc-black .activitybar.left>.content >.monaco-action-bar .action-item:focus:before,
-.hc-black .activitybar.right>.content >.monaco-action-bar .action-item:focus:before,
-.hc-light .activitybar.left>.content >.monaco-action-bar .action-item:focus:before,
-.hc-light .activitybar.right>.content >.monaco-action-bar .action-item:focus:before {
+.hc-black .activitybar.left>.content>.monaco-action-bar .action-item:focus:before,
+.hc-black .activitybar.right>.content>.monaco-action-bar .action-item:focus:before,
+.hc-light .activitybar.left>.content>.monaco-action-bar .action-item:focus:before,
+.hc-light .activitybar.right>.content>.monaco-action-bar .action-item:focus:before {
 	outline: none
 }
 
-.activitybar>.content >.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
-.activitybar>.content >.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
-.activitybar>.content >.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
+.activitybar>.content>.monaco-action-bar .action-item.active .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content>.monaco-action-bar .action-item:focus .profile-badge .profile-icon-overlay .codicon,
+.activitybar>.content>.monaco-action-bar .action-item:hover .profile-badge .profile-icon-overlay .codicon {
 	color: var(--vscode-activityBar-foreground) !important
 }
 
-.activitybar>.content >.monaco-action-bar .action-item:active .profile-text-overlay,
-.activitybar>.content >.monaco-action-bar .action-item:focus .profile-text-overlay,
-.activitybar>.content >.monaco-action-bar .action-item:hover .profile-text-overlay {
+.activitybar>.content>.monaco-action-bar .action-item:active .profile-text-overlay,
+.activitybar>.content>.monaco-action-bar .action-item:focus .profile-text-overlay,
+.activitybar>.content>.monaco-action-bar .action-item:hover .profile-text-overlay {
 	color: var(--vscode-activityBar-foreground)
 }
 
@@ -327,25 +327,25 @@
 	outline: 0 !important
 }
 
-.activitybar>.content >.monaco-action-bar .action-label {
-    box-sizing: border-box;
-    display: flex;
-    height: 48px;
-    margin-right: 0;
-    overflow: hidden;
-    position: relative;
-    width: 48px;
-    z-index: 1
+.activitybar>.content>.monaco-action-bar .action-label {
+	box-sizing: border-box;
+	display: flex;
+	height: 48px;
+	margin-right: 0;
+	overflow: hidden;
+	position: relative;
+	width: 48px;
+	z-index: 1
 }
 
-.activitybar>.content >.monaco-action-bar .action-label:not(.codicon) {
-    font-size: 15px;
-    line-height: 40px;
-    padding: 0 0 0 48px
+.activitybar>.content>.monaco-action-bar .action-label:not(.codicon) {
+	font-size: 15px;
+	line-height: 40px;
+	padding: 0 0 0 48px
 }
 
-.activitybar>.content >.monaco-action-bar .action-label.codicon {
-    align-items: center;
-    font-size: 24px;
-    justify-content: center
+.activitybar>.content>.monaco-action-bar .action-label.codicon {
+	align-items: center;
+	font-size: 24px;
+	justify-content: center
 }
