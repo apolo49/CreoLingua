@@ -18,6 +18,9 @@
       },
       "fs": {
         "all": true
+      },
+      "path": {
+        "all": true
       }
     },
     "bundle": {

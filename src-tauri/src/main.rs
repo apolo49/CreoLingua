@@ -1,66 +1,44 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::{fs, io::{Read, Write}, str::Bytes, thread::current};
+mod loading_and_saving;
 
-use zip::write::FileOptions;
-
-static mut CURRENT_FILE: String = String::new();
+use tauri::{AboutMetadata, CustomMenuItem, Menu, MenuItem, Submenu};
 
 fn main() {
+    let about_metadata: AboutMetadata = AboutMetadata::default();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![open_language, save_to_file])
+        .menu(setup_menubar(about_metadata.clone()))
+        .invoke_handler(tauri::generate_handler![loading_and_saving::open_language, loading_and_saving::save_to_file])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
 
-#[tauri::command]
-fn open_language(file_path: &str) -> String {
-    let fname = std::path::Path::new(file_path);
-    let zipfile = match fs::File::open(fname) {
-        Ok(zipfile) => zipfile,
-        Err(..) => {
-            return format!("Unable to read {}.", file_path);
-        }
-    };
-    let mut archive = match zip::ZipArchive::new(zipfile) {
-        Ok(archive) => archive,
-        Err(..) => {
-            return format!("Unable to read {}.", file_path);
-        }
-    };
-    let mut buf = String::new();
-    let mut file = match archive.by_name("PGDictionary.xml") {
-        Ok(file) => file,
-        Err(..) => {
-            return format!("Unable to read {}.", file_path);
-        }
-    };
-    file.read_to_string(&mut buf).unwrap();
-
-    unsafe {CURRENT_FILE = file_path.to_string();}
-
-    return format!("{}", buf);
-}
-
-#[tauri::command]
-fn save_to_file(file_contents: &[u8]) -> String{
-    let mut file_path = String::new();
-    unsafe { file_path = CURRENT_FILE.clone();}
-
-    let fname = std::path::Path::new(&file_path);
-    let zipfile = match fs::File::open(fname) {
-        Ok(zipfile) => zipfile,
-        Err(..) => {
-            return format!("Unable to read {}.", file_path);
-        }
-    };
-    let mut archive = zip::ZipWriter::new(zipfile);
-    let options = FileOptions::default()
-        .compression_method(zip::CompressionMethod::Stored)
-        .unix_permissions(0o755);
-    let _ = archive.start_file("PGDictionary.xml", options);
-    let _ = archive.write_all(file_contents);
-    let _ = archive.finish();
-    return "Success!".to_string();
+fn setup_menubar(about_metadata: AboutMetadata) -> Menu {
+    let creo_lingua_submenu = Submenu::new(
+        "CreoLingua",
+        Menu::new()
+            .add_native_item(MenuItem::About("".to_string(), about_metadata))
+            .add_native_item(MenuItem::Separator)
+            .add_item(CustomMenuItem::new("settings", "Settings"))
+            .add_native_item(MenuItem::Separator)
+            .add_native_item(MenuItem::Services)
+            .add_native_item(MenuItem::Separator)
+            .add_native_item(MenuItem::Hide)
+            .add_native_item(MenuItem::HideOthers)
+            .add_native_item(MenuItem::Separator)
+            .add_native_item(MenuItem::Quit),
+    );
+    let file_submenu = Submenu::new(
+        "File",
+        Menu::new()
+            .add_item(CustomMenuItem::new("save", "Save").accelerator("CmdOrControl+S"))
+            .add_item(CustomMenuItem::new("save_as", "Save As").accelerator("Shift+CmdOrControl+S"))
+            .add_native_item(MenuItem::Separator)
+            .add_native_item(MenuItem::CloseWindow),
+    );
+    let menu = Menu::new()
+        .add_submenu(creo_lingua_submenu)
+        .add_submenu(file_submenu);
+    return menu;
 }

@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Sidebar } from "~/components/sidebar/sidebar";
 
 export default component$(() => {
 
@@ -7,6 +8,7 @@ export default component$(() => {
   
     return (
       <>
+        <Sidebar title="Lexicon"/>
       </>
     );
   });

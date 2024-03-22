@@ -30,7 +30,7 @@ export default component$(() => {
   return (
     <>
       <ActivityBar />
-      <main style="margin-left:48px; height: 100vh; overflow-y: auto;">
+      <main style="margin-left:48px; height: 100vh; overflow-y: hidden;">
         <Slot />
       </main>
     </>
