@@ -16,7 +16,7 @@ export const SidebarItem = component$((props: SidebarItemProps) => {
     return (
         <AccordionItem>
             <AccordionHeader as="h3" style="margin-block: 0;">
-                <AccordionTrigger class="sidebar-header" style={noTopBorder && "border-top: 0px;" || undefined}>
+                <AccordionTrigger class="sidebar-header" style={noTopBorder ? "border-top: 0px;" : ""}>
                     <span class="codicon codicon-chevron-right" />
                     <span>
                         {props.title}
@@ -26,7 +26,7 @@ export const SidebarItem = component$((props: SidebarItemProps) => {
             <AccordionContent>
                 <div role="tree">
                     <div role="presentation">
-                        <div style="overflow-x: hidden;">
+                        <div style="overflow-x: hidden; height: 88vh;">
                             <Slot />
                         </div>
                     </div>

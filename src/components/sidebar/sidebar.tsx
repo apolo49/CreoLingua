@@ -1,7 +1,7 @@
 // import { useLocation } from "@builder.io/qwik-city";
 
 import type { PropsOf } from "@builder.io/qwik";
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
 import scopedStyle1 from "./sidebar.css?inline";
 import { AccordionRoot } from '@qwik-ui/headless';
 import { SidebarTitle } from "../sidebar-title/sidebar-title";
@@ -13,7 +13,7 @@ type SidebarProps = PropsOf<"div"> & {
 
 
 export const Sidebar = component$((props: SidebarProps) => {
-    useStyles$(scopedStyle1)
+    useStylesScoped$(scopedStyle1)
 
     const left = props.left || 48;
 

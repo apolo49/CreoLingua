@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { SidebarItem } from "~/components/sidebar-item/sidebar-item";
+import { SidebarRow } from "~/components/sidebar-row/sidebar-row";
 import { Sidebar } from "~/components/sidebar/sidebar";
 
 export default component$(() => {
@@ -11,7 +12,7 @@ export default component$(() => {
       <>
         <Sidebar title="Lexicon">
           <SidebarItem title="Verbs" noTopBorder={true}>
-            {[...Array(100)].map((_, i) => <p key={i}>♦</p>)}
+            {[...Array(100)].map((_, i) => <SidebarRow key={i} title="Hello" />)}
           </SidebarItem>
           <SidebarItem title="Noun">
           </SidebarItem>

@@ -49,20 +49,12 @@ body {
 
  /* width */
 ::-webkit-scrollbar {
-  transition: opacity 0.8s linear;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  border-radius: 10px;
   width: 10px;
-  z-index: 14;
-  display: block;
+  transition: opacity 0.8s linear;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  width: 10px;
   background-color: rgba(121, 121, 121, 0.4);
   display: block;
   border-radius: 0%;
