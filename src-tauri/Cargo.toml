@@ -1,11 +1,11 @@
 [package]
-name = "creo_lingua"
+name = "CreoLingua"
 version = "0.1.0"
 description = "CreoLingua is an application for creating conlangs. It is fork of PolyGlot aimed at performance, upgradability and stability."
 authors = ["Joe Targett"]
 license = ""
 repository = ""
-default-run = "creo_lingua"
+default-run = "CreoLingua"
 edition = "2021"
 rust-version = "1.60"
 

@@ -6,7 +6,7 @@
 .part.activitybar {
     width: 48px;
     height: 100%;
-    background-color: rgb(24,24,24);
+    background-color: rgb(24, 24, 24);
     position: fixed;
     z-index: 1;
 }
@@ -18,22 +18,15 @@
     box-sizing: border-box;
     height: 100%;
     width: 0px;
-    border-color: rgb(24,24,24);
+    border-color: rgb(24, 24, 24);
 }
 
 .activitybar.left.bordered::before {
     top: 0;
     right: 0;
     overflow-x: hidden;
-    border-right-style: solid;
-    border-right-width: 1px;
+    border-right: 1px solid rgb(43, 43, 43);
 }
-
-/* .activitybar.right.bordered::before {
-    left: 0;
-    border-left-style: solid;
-    border-left-width: 1px;
-} */
 
 .activitybar>.content {
     height: 100%;
@@ -65,7 +58,9 @@
     height: 35px;
 }
 
-.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge,
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
     bottom: 0;
     height: 100%;
     left: 0;
@@ -76,7 +71,8 @@
     width: 100%
 }
 
-.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge {
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .active-item-indicator,
+.activitybar>.content :not(.monaco-menu)>.monaco-action-bar .badge {
     z-index: 2
 }
 
@@ -143,7 +139,8 @@
     vertical-align: baseline
 }
 
-.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .badge,.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
+.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .badge,
+.activitybar.right>.content :not(.monaco-menu)>.monaco-action-bar .profile-badge {
     left: auto;
     right: 0
 }
@@ -191,7 +188,8 @@
     margin-bottom: auto
 }
 
-.activitybar .menubar,.activitybar .menubar.compact .toolbar-toggle-more {
+.activitybar .menubar,
+.activitybar .menubar.compact .toolbar-toggle-more {
     height: 35px;
     width: 100%
 }

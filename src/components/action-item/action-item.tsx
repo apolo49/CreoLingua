@@ -23,7 +23,7 @@ export const ActionItem = component$((props: ActionItemProps) => {
 
 
     return (
-        <Tooltip class="monaco-hover" content={props.toolTipText} offset={8} position="right">
+        <Tooltip content={props.toolTipText} offset={4} position="right">
             <li class={`action-item ${(icon && "icon") || ""}`} role={props.role || ""}>
                 <Link href={props.url} class={`action-label ${(icon && `codicon codicon-${icon}`) || ""}`} />
                 <div class="active-item-indicator"></div>
