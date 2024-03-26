@@ -3,7 +3,7 @@ import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import scopedStyle from "./sidebar-row.css?inline";
 
 type SidebarRowProps = PropsOf<"div"> & {
-    title: string
+    label: string
 }
 
 export const SidebarRow = component$((props: SidebarRowProps) => {
@@ -15,7 +15,7 @@ export const SidebarRow = component$((props: SidebarRowProps) => {
                 <div class="tl-twistie" />
                 <div class="label-container">
                     <span class="label">
-                        {props.title}
+                        {props.label}
                     </span>
                 </div>
             </div>

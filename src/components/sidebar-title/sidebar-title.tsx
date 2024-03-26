@@ -10,9 +10,6 @@ type SidebarTitleProps = PropsOf<"div"> & {
 export const SidebarTitle = component$((props: SidebarTitleProps) => {
     useStylesScoped$(scopedStyle)
 
-    // Used for getting current URL
-    // const loc = useLocation();
-
     return (
         <div class="sidebar-title">
             <div class="sidebar-title-label">

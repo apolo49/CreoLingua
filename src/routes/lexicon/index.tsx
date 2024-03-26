@@ -12,7 +12,7 @@ export default component$(() => {
       <>
         <Sidebar title="Lexicon">
           <SidebarItem title="Verbs" noTopBorder={true}>
-            {[...Array(100)].map((_, i) => <SidebarRow key={i} title="Hello" />)}
+            {[...Array(100)].map((_, i) => <SidebarRow key={i} label="Hello" />)}
           </SidebarItem>
           <SidebarItem title="Noun">
           </SidebarItem>
