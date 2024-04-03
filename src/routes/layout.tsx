@@ -6,6 +6,7 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 
 import styles from "./styles.css?inline";
 import { ActivityBar } from "~/components/activity-bar/activity-bar";
+import { TitleBar } from "~/components/title-bar/title-bar";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -22,6 +23,7 @@ export default component$(() => {
   useStyles$(styles);
   return (
     <>
+      <TitleBar title="CreoLingua" />
       <ActivityBar />
       <main style="margin-left:48px; height: 100vh; overflow-y: hidden;">
         <Slot />

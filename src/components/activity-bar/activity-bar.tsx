@@ -9,17 +9,17 @@ import { ActionBar } from "../action-bar/action-bar";
  * The RouterHead component is placed inside of the document `<head>` element.
  */
 export const ActivityBar = component$(() => {
-    useStyles$(scopedStyle1)
-    useStyles$(scopedStyle2)
+  useStyles$(scopedStyle1);
+  useStyles$(scopedStyle2);
 
-    // Used for getting current URL
-    // const loc = useLocation();
+  // Used for getting current URL
+  // const loc = useLocation();
 
-    return (
-        <aside class="part activitybar left bordered">
-            <div class="content" style="width: 48px; height: 100vh;">
-                <ActionBar />
-            </div>
-        </aside>
-    );
+  return (
+    <aside class="part activitybar left bordered">
+      <div class="content" style="width: 48px; height: 100vh;">
+        <ActionBar />
+      </div>
+    </aside>
+  );
 });

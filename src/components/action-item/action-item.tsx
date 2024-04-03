@@ -4,30 +4,35 @@
 import type { PropsOf } from "@builder.io/qwik";
 import { component$, useStyles$ } from "@builder.io/qwik";
 import style from "./action-item.css?inline";
-import { Tooltip } from '@qwik-ui/headless';
+import { Tooltip } from "@qwik-ui/headless";
 import { Link } from "@builder.io/qwik-city";
 
 type ActionItemProps = PropsOf<"li"> & {
-    role?: string
-    icon?: string
-    url: string
-    toolTipText: string
-}
+  role?: string;
+  icon?: string;
+  url: string;
+  toolTipText: string;
+};
 
 /**
  * The RouterHead component is placed inside of the document `<head>` element.
  */
 export const ActionItem = component$((props: ActionItemProps) => {
-    useStyles$(style)
-    const icon = props.icon || false
+  useStyles$(style);
+  const icon = props.icon || false;
 
-
-    return (
-        <Tooltip content={props.toolTipText} offset={4} position="right">
-            <li class={`action-item ${(icon && "icon") || ""}`} role={props.role || ""}>
-                <Link href={props.url} class={`action-label ${(icon && `codicon codicon-${icon}`) || ""}`} />
-                <div class="active-item-indicator"></div>
-            </li>
-        </Tooltip>
-    );
+  return (
+    <Tooltip content={props.toolTipText} offset={4} position="right">
+      <li
+        class={`action-item ${(icon && "icon") || ""}`}
+        role={props.role || ""}
+      >
+        <Link
+          href={props.url}
+          class={`action-label ${(icon && `codicon codicon-${icon}`) || ""}`}
+        />
+        <div class="active-item-indicator"></div>
+      </li>
+    </Tooltip>
+  );
 });

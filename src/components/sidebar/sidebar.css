@@ -3,105 +3,202 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-.nosidebar>.part.sidebar {
-	display: none !important;
-	visibility: hidden !important;
+.nosidebar > .part.sidebar {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .part.sidebar .title-actions .actions-container {
-	justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .part.sidebar .title-actions .action-item {
-	margin-right: 4px;
+  margin-right: 4px;
 }
 
-.part.sidebar>.title>.title-label h2 {
-	text-transform: uppercase;
+.part.sidebar > .title > .title-label h2 {
+  text-transform: uppercase;
 }
 
 .viewlet .collapsible.header .title {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .viewlet .collapsible.header .actions {
-	width: 0;
-	/* not using display: none for keyboard a11y reasons */
+  width: 0;
+  /* not using display: none for keyboard a11y reasons */
 }
 
-.viewlet .split-view-view:hover>.header .actions,
+.viewlet .split-view-view:hover > .header .actions,
 .viewlet .collapsible.header.focused .actions {
-	width: initial;
-	flex: 1;
+  width: initial;
+  flex: 1;
 }
 
 .viewlet .collapsible.header .actions .action-label {
-	width: 28px;
-	background-size: 16px;
-	background-position: center center;
-	background-repeat: no-repeat;
-	margin-right: 0;
-	height: 22px;
+  width: 28px;
+  background-size: 16px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 0;
+  height: 22px;
 }
 
 .viewlet .collapsible.header .actions .action-label .label {
-	display: none;
+  display: none;
 }
 
 .viewlet .collapsible.header.collapsed .actions {
-	display: none;
+  display: none;
 }
 
 .viewlet .collapsible.header .action-label {
-	margin-right: 0.2em;
-	background-repeat: no-repeat;
-	width: 16px;
-	height: 16px;
+  margin-right: 0.2em;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
 }
 
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:focus,
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:focus {
-	outline: 0 !important;
-	/* activity bar indicates focus custom */
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:focus,
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:focus {
+  outline: 0 !important;
+  /* activity bar indicates focus custom */
 }
 
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .action-label,
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .action-label {
-	border-radius: 0px;
-	outline-offset: 2px;
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item
+  .action-label,
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item
+  .action-label {
+  border-radius: 0px;
+  outline-offset: 2px;
 }
 
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .action-label::before,
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item .action-label::before {
-	position: absolute;
-	left: 6px;
-	/* place icon in center */
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item
+  .action-label::before,
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item
+  .action-label::before {
+  position: absolute;
+  left: 6px;
+  /* place icon in center */
 }
 
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator:before,
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.checked.clicked:focus .active-item-indicator:before,
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.checked:not(:focus) .active-item-indicator:before,
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item.checked.clicked:focus .active-item-indicator:before {
-	border-top-color: var(--vscode-activityBarTop-activeBorder) !important;
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item.checked:not(:focus)
+  .active-item-indicator:before,
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item.checked.clicked:focus
+  .active-item-indicator:before,
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item.checked:not(:focus)
+  .active-item-indicator:before,
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item.checked.clicked:focus
+  .active-item-indicator:before {
+  border-top-color: var(--vscode-activityBarTop-activeBorder) !important;
 }
 
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:hover .action-label,
-.part.sidebar>.header-or-footer>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:focus .action-label,
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:hover .action-label,
-.part.sidebar>.title>.composite-bar-container>.composite-bar>.monaco-action-bar .action-item:focus .action-label {
-	color: var(--vscode-activityBarTop-foreground) !important;
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:hover
+  .action-label,
+.part.sidebar
+  > .header-or-footer
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:focus
+  .action-label,
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:hover
+  .action-label,
+.part.sidebar
+  > .title
+  > .composite-bar-container
+  > .composite-bar
+  > .monaco-action-bar
+  .action-item:focus
+  .action-label {
+  color: var(--vscode-activityBarTop-foreground) !important;
 }
 
-.sidebar.pane-composite-part>.title>.composite-bar-container {
-	flex: 1;
+.sidebar.pane-composite-part > .title > .composite-bar-container {
+  flex: 1;
 }
 
-.sidebar.part.pane-composite-part>.composite.title.has-composite-bar>.title-actions {
-	flex: inherit;
+.sidebar.part.pane-composite-part
+  > .composite.title.has-composite-bar
+  > .title-actions {
+  flex: inherit;
 }
 
-.sidebar.pane-composite-part>.title.has-composite-bar>.title-actions .monaco-action-bar .action-item {
-	max-width: 150px;
+.sidebar.pane-composite-part
+  > .title.has-composite-bar
+  > .title-actions
+  .monaco-action-bar
+  .action-item {
+  max-width: 150px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 35px);
+  min-height: calc(100vh - 35px);
+  height: calc(100vh - 35px);
+  width: 267px;
 }
