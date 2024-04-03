@@ -52,7 +52,7 @@
         "resizable": true,
         "title": "CreoLingua",
         "width": 800,
-        "decorations": false
+        "decorations": true
       }
     ],
     "trayIcon": {

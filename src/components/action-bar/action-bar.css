@@ -3,45 +3,45 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
- .monaco-action-bar {
-	white-space: nowrap;
-	height: 100%;
+.monaco-action-bar {
+  white-space: nowrap;
+  height: 100%;
 }
 
 .monaco-action-bar .actions-container {
-	display: flex;
-	margin: 0 auto;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	align-items: center;
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
 }
 
 .monaco-action-bar.vertical .actions-container {
-	display: inline-block;
+  display: inline-block;
 }
 
 .monaco-action-bar .action-label {
-	display: flex;
-	font-size: 11px;
-	padding: 3px;
-	border-radius: 5px;
+  display: flex;
+  font-size: 11px;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 /* Vertical actions */
 
 .monaco-action-bar.vertical {
-	text-align: left;
+  text-align: left;
 }
 
 .monaco-action-bar.vertical .action-label.separator {
-	display: block;
-	border-bottom: 1px solid #bbb;
-	padding-top: 1px;
-	margin-left: .8em;
-	margin-right: .8em;
+  display: block;
+  border-bottom: 1px solid #bbb;
+  padding-top: 1px;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
 }
 
 .secondary-actions .monaco-action-bar .action-label {
-	margin-left: 6px;
+  margin-left: 6px;
 }

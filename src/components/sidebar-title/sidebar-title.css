@@ -1,39 +1,39 @@
 .sidebar-title {
-    display: flex;
-    box-sizing: border-box;
-    height: 35px;
-    overflow: hidden;
-    padding-inline: 8px;
-    color: rgb(204, 204, 204);
-    background-color: #181818;
-    outline-color: rgba(83, 89, 93, 0.5);
-    white-space: normal;
+  display: flex;
+  box-sizing: border-box;
+  height: 35px;
+  overflow: hidden;
+  padding-inline: 8px;
+  color: rgb(204, 204, 204);
+  background-color: #181818;
+  outline-color: rgba(83, 89, 93, 0.5);
+  white-space: normal;
 }
 
 .sidebar-title-label {
-    line-height: 35px;
-    overflow: hidden;
-    padding-left: 12px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
+  line-height: 35px;
+  overflow: hidden;
+  padding-left: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 
 .sidebar-title-label > h2 {
-    color: rgb(204, 204, 204);
-    text-transform: uppercase;
-    cursor: default;
-    font-size: 11px;
-    font-weight: 400;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    user-select: none;
-    display: block;
-    margin-inline: 0px;
-    line-height: 35px;
-    padding-left: 12px;
-    -webkit-user-select: none;
-    -webkit-user-drag: element;
+  color: rgb(204, 204, 204);
+  text-transform: uppercase;
+  cursor: default;
+  font-size: 11px;
+  font-weight: 400;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
+  display: block;
+  margin-inline: 0px;
+  line-height: 35px;
+  padding-left: 12px;
+  -webkit-user-select: none;
+  -webkit-user-drag: element;
 }

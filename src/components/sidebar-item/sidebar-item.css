@@ -1,3 +1,7 @@
+h3 {
+  all: initial;
+}
+
 .sidebar-header {
   color: #cccccc;
   line-height: 22px;
@@ -32,28 +36,56 @@
   pointer-events: none;
 }
 
+button > span.codicon {
+  font: normal normal normal 16px/1 codicon;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+button[data-state="closed"] > span.codicon::before {
+  content: "\eab6";
+}
+
+button[data-state="open"] > span.codicon::before {
+  content: "\eab4";
+}
+
+/* Collapsible container */
 div[data-collapsible] {
   display: flex;
   flex-direction: column;
 }
 
-div[data-collapsible]:has(div.collapsible-content[data-open]) {
+div[data-collapsible]:has(div.collapsible-content[data-state="open"]) {
   flex: 1 1 auto;
   overflow: hidden;
 }
 
-.collapsible-content[data-open] {
-  display: flex;
-  flex: 1 1 auto;
+/* Collapsible content */
+.collapsible-content[data-state="open"] {
+  display: block;
+  flex: 0 1 auto;
+  flex-flow: wrap;
   animation: 0.2s linear collapsible-open;
 }
 
-.collapsible-content[data-open]:hover {
+.collapsible-content[data-state="open"]:hover {
   overflow-y: scroll;
 }
 
-.collapsible-content[data-closed] {
+.collapsible-content[data-sate="open"] {
   animation: 0.2s linear collapsible-closed;
+}
+
+.collapsible-content[data-state="open"] > div {
+  width: 100%;
 }
 
 @keyframes collapsible-open {

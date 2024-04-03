@@ -1,9 +1,10 @@
 import type { PropsOf } from "@builder.io/qwik";
-import { component$, Slot, useSignal, useStyles$ } from "@builder.io/qwik";
+import { component$, Slot, useStyles$ } from "@builder.io/qwik";
 import {
-  CollapsibleTrigger,
-  Collapsible,
-  CollapsibleContent,
+  AccordionItem,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionContent,
 } from "@qwik-ui/headless";
 import scopedStyle from "./sidebar-item.css?inline";
 
@@ -13,26 +14,22 @@ type SidebarItemProps = PropsOf<"div"> & {
 };
 
 export const SidebarItem = component$((props: SidebarItemProps) => {
-  const isOpen = useSignal<boolean>(false);
   const id = `${props.title}-collapsible`;
   const noTopBorder = props.noTopBorder || false;
 
   useStyles$(scopedStyle);
   return (
-    <Collapsible id={id} bind:open={isOpen}>
-      <CollapsibleTrigger
-        class="sidebar-header"
-        style={noTopBorder ? "border-top: 0px;" : ""}
-      >
-        <span
-          class={[
-            "codicon",
-            isOpen.value ? "codicon-chevron-down" : "codicon-chevron-right",
-          ]}
-        />
-        <span>{props.title}</span>
-      </CollapsibleTrigger>
-      <CollapsibleContent class="collapsible-animation collapsible-content">
+    <AccordionItem data-collapsible id={id}>
+      <AccordionHeader>
+        <AccordionTrigger
+          class="sidebar-header"
+          style={noTopBorder ? "border-top: 0px;" : ""}
+        >
+          <span class="codicon" />
+          <span>{props.title}</span>
+        </AccordionTrigger>
+      </AccordionHeader>
+      <AccordionContent class="collapsible-animation collapsible-content">
         <div role="tree">
           <div role="presentation">
             <div style="overflow-x: hidden;">
@@ -40,7 +37,7 @@ export const SidebarItem = component$((props: SidebarItemProps) => {
             </div>
           </div>
         </div>
-      </CollapsibleContent>
-    </Collapsible>
+      </AccordionContent>
+    </AccordionItem>
   );
 });

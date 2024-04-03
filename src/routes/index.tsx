@@ -1,11 +1,13 @@
-import { invoke } from "@tauri-apps/api";
-import { open } from "@tauri-apps/api/dialog";
+import { invoke } from "@tauri-apps/api/core";
+import { open } from "@tauri-apps/plugin-dialog";
 import { appConfigDir } from "@tauri-apps/api/path";
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import { XMLParser } from "fast-xml-parser";
 
 export default component$(() => {
   const file_contents = useSignal("");
+  const xmlparser = new XMLParser({ ignoreDeclaration: true });
 
   return (
     <>
@@ -35,9 +37,8 @@ export default component$(() => {
               ],
             });
             if (!selected) return;
-            console.log(selected);
             file_contents.value = await invoke("open_language", {
-              filePath: selected,
+              filePath: selected.path,
             });
           }}
         >
@@ -47,7 +48,11 @@ export default component$(() => {
         <Link href="/manual">
           <button>Open Manual</button>
         </Link>
-        <p>{file_contents.value}</p>
+        {file_contents.value ? (
+          <p>{JSON.stringify(xmlparser.parse(file_contents.value))}</p>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

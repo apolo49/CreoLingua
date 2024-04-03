@@ -5,30 +5,29 @@ import { SidebarRow } from "~/components/sidebar-row/sidebar-row";
 import { Sidebar } from "~/components/sidebar/sidebar";
 
 export default component$(() => {
+  // const greetMsg = useSignal('')
 
-    // const greetMsg = useSignal('')
-  
-    return (
-      <>
-        <Sidebar title="Lexicon">
-          <SidebarItem title="Verbs" noTopBorder={true}>
-            {[...Array(100)].map((_, i) => <SidebarRow key={i} label="Hello" />)}
-          </SidebarItem>
-          <SidebarItem title="Noun">
-          </SidebarItem>
-          <SidebarItem title="Adjective">
-          </SidebarItem>
-        </Sidebar>
-      </>
-    );
-  });
-  
-  export const head: DocumentHead = {
-    title: "Lexicon",
-    meta: [
-      {
-        name: "description",
-        content: "Lexicon",
-      },
-    ],
-  };
+  return (
+    <>
+      <Sidebar title="Lexicon">
+        <SidebarItem title="Verbs" noTopBorder={true}>
+          {[...Array(100)].map((_, i) => (
+            <SidebarRow key={i} label="Hello" />
+          ))}
+        </SidebarItem>
+        <SidebarItem title="Noun"></SidebarItem>
+        <SidebarItem title="Adjective"></SidebarItem>
+      </Sidebar>
+    </>
+  );
+});
+
+export const head: DocumentHead = {
+  title: "Lexicon",
+  meta: [
+    {
+      name: "description",
+      content: "Lexicon",
+    },
+  ],
+};

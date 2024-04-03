@@ -2,21 +2,31 @@
 
 import type { PropsOf } from "@builder.io/qwik";
 import {
+  $,
   component$,
-  Slot,
-  useSignal,
+  useOnDocument,
   useStylesScoped$,
 } from "@builder.io/qwik";
 import scopedStyle from "./title-bar.css?inline";
-import { window } from "@tauri-apps/api";
+import { getCurrent } from "@tauri-apps/api/webview";
 
-type SidebarProps = PropsOf<"div"> & {
+type TitleBarProps = PropsOf<"div"> & {
   title: string;
 };
 
-export const TitleBar = component$((props: SidebarProps) => {
+export const TitleBar = component$((props: TitleBarProps) => {
   useStylesScoped$(scopedStyle);
-  return (
-    <div bind:data-active={window.appWindow.isFocused} class="title-bar"></div>
+
+  useOnDocument(
+    "load",
+    $(() => {
+      const titlebar = document.getElementById("titlebar");
+      if (titlebar == null) return;
+      getCurrent().window.onFocusChanged(({ payload: focused }) => {
+        titlebar.setAttribute("data-active", `${focused}`);
+      });
+    }),
   );
+
+  return <div id="titlebar" class="title-bar"></div>;
 });

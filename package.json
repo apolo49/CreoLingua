@@ -32,8 +32,8 @@
     "@builder.io/qwik-city": "^1.5.1",
     "@qwik-ui/headless": "^0.3.4",
     "@stylistic/eslint-plugin": "^1.7.0",
-    "@tauri-apps/api": "^1.5.3",
-    "@tauri-apps/cli": "^1.5.11",
+    "@tauri-apps/api": "^2.0.0-beta.7",
+    "@tauri-apps/cli": "^2.0.0-beta.12",
     "@types/bun": "^1.0.10",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
@@ -42,10 +42,16 @@
     "@vscode/codicons": "^0.0.35",
     "eslint": "^8.57.0",
     "eslint-plugin-qwik": "^1.5.1",
+    "fast-xml-parser": "^4.3.6",
     "prettier": "^3.2.5",
     "typescript": "5.3.3",
     "undici": "*",
     "vite": "^5.1.4",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.0.0-beta.2",
+    "@tauri-apps/plugin-fs": "^2.0.0-beta.2",
+    "@tauri-apps/plugin-os": "^2.0.0-beta.2"
   }
 }
