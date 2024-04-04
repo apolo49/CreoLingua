@@ -1,18 +1,23 @@
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
 mod loading_and_saving;
 
+#[cfg(target_os = "macos")]
 use tauri::{
     menu::{AboutMetadata, Menu, MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuilder},
     App, Error, Wry,
 };
+
+#[cfg(target_os = "macos")]
 use tauri_plugin_dialog::DialogExt;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    let about_metadata: AboutMetadata = AboutMetadata::default();
     tauri::Builder::default()
         .setup(|app| {
             #[cfg(target_os = "macos")]
             {
+                let about_metadata: AboutMetadata = AboutMetadata::default();
                 let menu = setup_menubar(app, about_metadata)?;
                 app.set_menu(menu)?;
                 app.on_menu_event(move |app, event| {
@@ -43,6 +48,7 @@ pub fn run() {
         .expect("error while running tauri application");
 }
 
+#[cfg(target_os = "macos")]
 fn setup_menubar(app: &mut App, about_metadata: AboutMetadata) -> Result<Menu<Wry>, Error> {
     let settings_menu_item = MenuItemBuilder::new("Settings").build(app)?;
     let creo_lingua_submenu = SubmenuBuilder::new(app, "CreoLingua")
