@@ -36,6 +36,50 @@ h3 {
   pointer-events: none;
 }
 
+.actions {
+  display: none;
+  margin-left: auto;
+  height: 20px;
+  white-space: nowrap;
+}
+
+.actions-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style-type: disc;
+  pointer-events: none;
+}
+
+.action-item {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  align-items: center;
+  cursor: pointer;
+  display: block;
+  justify-content: center;
+  position: relative;
+  margin-right: 4px;
+}
+
+.action-label {
+  border-radius: 5px;
+  padding: 2px;
+  pointer-events: all;
+  z-index: 1000;
+}
+
+.action-item .codicon {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  width: 16px;
+}
+
 button > span.codicon {
   font: normal normal normal 16px/1 codicon;
   display: inline-block;
@@ -61,6 +105,10 @@ button[data-state="open"] > span.codicon::before {
 div[data-collapsible] {
   display: flex;
   flex-direction: column;
+}
+
+div[data-collapsible]:hover .actions {
+  display: block;
 }
 
 div[data-collapsible]:has(div.collapsible-content[data-state="open"]) {

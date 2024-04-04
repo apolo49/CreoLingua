@@ -1,0 +1,40 @@
+.inputbox {
+  font-size: 13px;
+  width: 100%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: block;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: #313131;
+  color: #cccccc;
+  border: 1px solid #3c3c3c;
+}
+
+.inputbox.idle {
+}
+
+.ibwrapper {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  background-color: inherit;
+  color: #cccccc;
+  width: calc(100% - 88px);
+  height: 24px;
+  height: 26px;
+  overflow: initial;
+  padding: 3px 0 3px 6px;
+  display: block;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  resize: none;
+}

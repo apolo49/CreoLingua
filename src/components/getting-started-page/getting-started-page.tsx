@@ -51,6 +51,7 @@ export const GettingStartedPage = component$(() => {
                     file_contents.value = await invoke("open_language", {
                       filePath: selected.path,
                     });
+                    console.log(file_contents.value);
                   }}
                 >
                   <span class="codicon codicon-folder-opened icon-widget"></span>
@@ -70,7 +71,6 @@ export const GettingStartedPage = component$(() => {
               </li>
             </ul>
           </div>
-          {file_contents.value ? <p>{file_contents.value}</p> : <></>}
         </div>
       </div>
     </div>

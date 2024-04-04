@@ -1,0 +1,103 @@
+.select-dropdown-widget {
+  --select-dropdown-foreground: #cccccc;
+  --select-dropdown-background: #222222;
+  --select-dropdown-border: #313131;
+  --select-dropdown-shadow: rgba(0, 0, 0, 0.36);
+  color: var(--select-dropdown-foreground);
+  border: 1px solid var(--vscode-widget-border);
+  box-shadow: 0 0 8px 2px var(--vscode-widget-shadow);
+  width: 600px;
+  -webkit-app-region: no-drag;
+  border-radius: 6px;
+}
+
+.select-dropdown-header {
+  display: flex;
+  padding: 8px 6px 6px;
+}
+
+.select-dropdown-and-message {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.select-dropdown-input-box {
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: block;
+  padding: 0;
+  font-size: 13px;
+  width: 100%;
+  background-color: var(--select-dropdown-background);
+  color: var(--select-dropdown-foreground);
+  border: 1px solid var(--select-dropdown-border, transparent);
+}
+
+.select-dropdown-input-value {
+  writing-mode: horizontal-tb !important;
+  padding-block: 1px;
+  padding-inline: 2px;
+  text-overflow: ellipsis;
+  padding: 4px 6px;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  height: 100%;
+  line-height: inherit;
+  resize: none;
+  background-color: inherit;
+  color: var(--select-dropdown-foreground);
+}
+
+/* Popover */
+
+.select-dropdown-popover {
+  line-height: 22px;
+  height: 100%;
+  white-space: nowrap;
+  max-height: 25vh;
+  width: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+
+.select-dropdown-popover[data-closed] {
+  display: none;
+}
+
+.select-dropdown-popover[data-open] {
+  display: block;
+}
+
+.select-dropdown-listbox {
+  height: 100%;
+  padding: 0 5px;
+  overflow: hidden;
+  width: 100%;
+  background: var(--select-dropdown-background);
+  transform: translate3d(0px, 0px, 0px);
+  overflow-y: scroll;
+  contain: strict;
+}
+
+.select-dropdown-list > li {
+  -webkit-user-drag: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.select-dropdown-list > li[data-highlighted] {
+  color: #ffffff;
+  background-color: #04395e;
+  outline-offset: -1px;
+}

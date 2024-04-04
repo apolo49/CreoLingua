@@ -9,7 +9,7 @@ type SidebarRowProps = PropsOf<"div"> & {
 export const SidebarRow = component$((props: SidebarRowProps) => {
   useStylesScoped$(scopedStyle);
   return (
-    <div class="row">
+    <div onClick$={props.onClick$ ? props.onClick$ : () => {}} class="row">
       <div class="tl-row">
         <div class="tl-twistie" />
         <div class="label-container">

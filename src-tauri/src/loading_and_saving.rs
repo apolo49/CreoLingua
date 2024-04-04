@@ -4,26 +4,28 @@ use std::{
 };
 
 use quickxml_to_serde::{xml_string_to_json, Config};
-use zip::write::FileOptions;
 use tauri;
+use zip::write::FileOptions;
+
+use crate::file_contents::FileContents;
 
 static mut CURRENT_FILE: String = String::new();
 
 #[tauri::command]
-pub fn open_language(file_path: &str) -> String {
+pub fn open_language(state: tauri::State<FileContents>, file_path: &str) -> String {
     if file_path.ends_with(".pgd") {
-        return open_legacy_file(file_path);
+        return open_legacy_file(state, file_path);
     } else if file_path.ends_with(".cld") {
-        return open_file(file_path);
+        return open_file(state, file_path);
     }
     return format!("Unable to read {}.", file_path);
 }
 
-fn open_file(_file_path: &str) -> String {
+fn open_file(state: tauri::State<FileContents>, _file_path: &str) -> String {
     todo!()
 }
 
-fn open_legacy_file(file_path: &str) -> String {
+fn open_legacy_file(state: tauri::State<FileContents>, file_path: &str) -> String {
     let fname = std::path::Path::new(file_path);
     let zipfile = match fs::File::open(fname) {
         Ok(zipfile) => zipfile,
@@ -51,11 +53,13 @@ fn open_legacy_file(file_path: &str) -> String {
     }
 
     let conf = Config::new_with_defaults();
-    let json = xml_string_to_json(buf.to_owned(), &conf);
+    let json = xml_string_to_json(buf.to_owned(), &conf).expect("Malformed PolyGlotDictionary");
+
+    *state.contents.lock().unwrap() = json.clone();
 
     return format!(
         "{}",
-        json.expect("Malformed PolyGlotDictionary").to_string()
+        json.to_string()
     );
 }
 

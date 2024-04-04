@@ -16,7 +16,7 @@ export const Sidebar = component$((props: SidebarProps) => {
 
   return (
     <aside
-      style={`left: ${left}px; width: 268px; background-color: rgb(24, 24, 24); color: rgb(204, 204, 204); border-right: 1px solid rgb(43, 43, 43); outline-color: rgba(83, 89, 93, 0.5);`}
+      style={`width: 268px; position: absolute; background-color: rgb(24, 24, 24); color: rgb(204, 204, 204); border-right: 1px solid rgb(43, 43, 43); outline-color: rgba(83, 89, 93, 0.5);`}
       class="part sidebar left pane-composite-part"
     >
       <SidebarTitle title={props.title} />

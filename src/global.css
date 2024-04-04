@@ -32,6 +32,7 @@ body {
   line-height: inherit;
   overflow-x: hidden;
   overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* width */

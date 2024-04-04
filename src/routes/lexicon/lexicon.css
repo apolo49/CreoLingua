@@ -1,0 +1,17 @@
+.input {
+  background-color: inherit;
+  color: rgb(#cccccc);
+  width: calc(100% - 88px);
+  height: 24px;
+  height: 26px;
+  overflow: initial;
+  padding: 3px 0 3px 6px;
+  display: block;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  resize: none;
+}

@@ -1,7 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod file_contents;
 mod loading_and_saving;
-
+mod words;
 #[cfg(target_os = "macos")]
 use tauri::{
     menu::{AboutMetadata, Menu, MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuilder},
@@ -37,12 +38,16 @@ pub fn run() {
             }
             Ok(())
         })
+        .manage(file_contents::FileContents {
+            contents: serde_json::Value::default().into(),
+        })
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_dialog::init())
         .invoke_handler(tauri::generate_handler![
             loading_and_saving::open_language,
-            loading_and_saving::save_to_file
+            loading_and_saving::save_to_file,
+            words::get_words
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

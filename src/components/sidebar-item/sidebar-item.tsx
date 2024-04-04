@@ -27,6 +27,13 @@ export const SidebarItem = component$((props: SidebarItemProps) => {
         >
           <span class="codicon" />
           <span>{props.title}</span>
+          <div class="actions">
+            <ul class="actions-container">
+              <li class="action-item menu-entry">
+                <a class="action-label codicon codicon-new-file" />
+              </li>
+            </ul>
+          </div>
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent class="collapsible-animation collapsible-content">
