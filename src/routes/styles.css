@@ -30,3 +30,7 @@ a {
   text-decoration: none;
   color: var(--qwik-light-blue);
 }
+
+main {
+  background-color: rgb(31, 31, 31);
+}

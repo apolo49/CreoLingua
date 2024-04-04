@@ -671,6 +671,7 @@ dependencies = [
 name = "creo_lingua"
 version = "0.1.0"
 dependencies = [
+ "quickxml_to_serde",
  "serde",
  "serde_json",
  "tauri",
@@ -2111,6 +2112,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
 
 [[package]]
+name = "minidom"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fe549115a674f5ec64c754d85e37d6f42664bd0ef4ffb62b619489ad99c6cb1a"
+dependencies = [
+ "quick-xml 0.17.2",
+]
+
+[[package]]
 name = "miniz_oxide"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2616,7 +2626,7 @@ dependencies = [
  "base64 0.21.7",
  "indexmap 2.2.5",
  "line-wrap",
- "quick-xml",
+ "quick-xml 0.31.0",
  "serde",
  "time",
 ]
@@ -2736,11 +2746,33 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
+version = "0.17.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fe1e430bdcf30c9fdc25053b9c459bb1a4672af4617b6c783d7d91dc17c6bbb0"
+dependencies = [
+ "memchr",
+]
+
+[[package]]
+name = "quick-xml"
 version = "0.31.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1004a344b30a54e2ee58d66a71b32d2db2feb0a31f9a2d302bf0536f15de2a33"
 dependencies = [
  "memchr",
+]
+
+[[package]]
+name = "quickxml_to_serde"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "286b05c7a00b356ff6ac5218e10d628e0a3be02e777d067ca7286d353c3c407e"
+dependencies = [
+ "minidom",
+ "regex",
+ "serde",
+ "serde_derive",
+ "serde_json",
 ]
 
 [[package]]

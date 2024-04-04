@@ -3,6 +3,7 @@ use std::{
     io::{Read, Write},
 };
 
+use quickxml_to_serde::{xml_string_to_json, Config};
 use tauri;
 use zip::write::FileOptions;
 
@@ -10,6 +11,19 @@ static mut CURRENT_FILE: String = String::new();
 
 #[tauri::command]
 pub fn open_language(file_path: &str) -> String {
+    if file_path.ends_with(".pgd") {
+        return open_legacy_file(file_path);
+    } else if file_path.ends_with(".cld") {
+        return open_file(file_path);
+    }
+    return format!("Unable to read {}.", file_path);
+}
+
+fn open_file(_file_path: &str) -> String {
+    todo!()
+}
+
+fn open_legacy_file(file_path: &str) -> String {
     let fname = std::path::Path::new(file_path);
     let zipfile = match fs::File::open(fname) {
         Ok(zipfile) => zipfile,
@@ -36,7 +50,13 @@ pub fn open_language(file_path: &str) -> String {
         CURRENT_FILE = file_path.to_string();
     }
 
-    return format!("{}", buf);
+    let conf = Config::new_with_defaults();
+    let json = xml_string_to_json(buf.to_owned(), &conf);
+
+    return format!(
+        "{}",
+        json.expect("Malformed PolyGlotDictionary").to_string()
+    );
 }
 
 #[tauri::command]
