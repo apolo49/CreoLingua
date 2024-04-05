@@ -28,9 +28,12 @@ export default component$(() => {
 
   const plat = useStore({ platform: "" });
 
-  useOnWindow("DOMContentLoaded", $(async () => {
-    plat.platform = await platform();
-  }))
+  useOnWindow(
+    "DOMContentLoaded",
+    $(async () => {
+      plat.platform = await platform();
+    }),
+  );
 
   return (
     <>

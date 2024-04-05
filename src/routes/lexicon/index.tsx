@@ -13,6 +13,7 @@ import { Sidebar } from "~/components/sidebar/sidebar";
 import scopedStyles from "./lexicon.css?inline";
 import { InputBox } from "~/components/input-box/input-box";
 import { SelectDropdown } from "~/components/select-dropdown/select-dropdown";
+import { MarkdownEntry } from "~/components/markdown-entry/markdown-entry";
 
 interface Word {
   autoDeclOverride: string;
@@ -71,7 +72,7 @@ export default component$(() => {
         <SidebarItem title="Adjective"></SidebarItem>
       </Sidebar>
       {selectedWord.value && (
-        <div style="float:left; position: absolute; display: block; white-space:normal; height:100%; width:100%; margin-left:268px;">
+        <div style="float:left; position: absolute; display: block; white-space:normal; height:100%; width:calc(100vw - 316px)); margin-left:268px;">
           <h2 class="subtitle">{selectedWord.value.conWord}</h2>
           <div onInput$={updateWord}>
             <label>Conlang Word: </label>
@@ -80,20 +81,24 @@ export default component$(() => {
               id="conWord"
               type="text"
             />
+            <br />
             <label>Native Language Word</label>
             <InputBox
               value={selectedWord.value.localWord}
               id="localWord"
               type="text"
             />
-            {/* <select id="partsOfSpeech"></select> */}
+            <br />
             <SelectDropdown />
+            <br />
             <label>Pronunciation</label>
             <InputBox
               value={selectedWord.value.pronunciation}
               id="pronunciation"
               type="text"
             />
+            <label>Definition</label>
+            <MarkdownEntry value={selectedWord.value.definition} />
           </div>
         </div>
       )}

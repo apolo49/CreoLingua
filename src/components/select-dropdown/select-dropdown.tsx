@@ -6,25 +6,16 @@ import {
   SelectPopover,
   SelectTrigger,
   SelectValue,
-  usePopover,
 } from "@qwik-ui/headless";
 import scopedStyle from "./select-dropdown.css?inline";
 
 export const SelectDropdown = component$(() => {
   const users: Array<string> = ["1", "2", "3"];
 
-  const correctLeft = $((isOpen: boolean) => {
-    if (!isOpen) return;
-  });
-
   useStyles$(scopedStyle);
   return (
-    <Select
-      onOpenChange$={correctLeft}
-      class="select-dropdown-widget show-file-icons"
-      aria-label="hero"
-    >
-      <div class="select-dropdown-header">
+    <Select class="select-dropdown-widget show-file-icons" aria-label="hero">
+      <div style="margin:auto;" class="select-dropdown-header">
         <div class="select-dropdown-and-message">
           <SelectTrigger class="select-dropdown-input-box">
             <SelectValue
