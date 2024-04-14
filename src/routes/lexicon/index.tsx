@@ -3,7 +3,7 @@ import {
   component$,
   useSignal,
   useStylesScoped$,
-  useVisibleTask$,
+  useTask$,
 } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { invoke } from "@tauri-apps/api/core";
@@ -11,96 +11,72 @@ import { SidebarItem } from "~/components/sidebar-item/sidebar-item";
 import { SidebarRow } from "~/components/sidebar-row/sidebar-row";
 import { Sidebar } from "~/components/sidebar/sidebar";
 import scopedStyles from "./lexicon.css?inline";
-import { InputBox } from "~/components/input-box/input-box";
-import { SelectDropdown } from "~/components/select-dropdown/select-dropdown";
-import { MarkdownEntry } from "~/components/markdown-entry/markdown-entry";
-
-interface Word {
-  autoDeclOverride: string;
-  conWord: string;
-  definition: string;
-  localWord: string;
-  pronunciation: string;
-  wordClassCollection: {
-    wordClassification: string;
-  };
-  wordClassTextValueCollection: object;
-  wordEtymologyNotes: object;
-  wordId: number;
-  wordProcOverride: string;
-  wordRuleOverride: string;
-  wordTypeId: number;
-}
+import { type PartOfSpeech } from "~/interfaces/part-of-speech";
+import { type Word } from "~/interfaces/word";
+import { isServer } from "@builder.io/qwik/build";
+import { WordEditor } from "~/components/word-editor/word-editor";
 
 export default component$(() => {
   const words = useSignal<Array<Word>>([]);
+  const partsOfSpeech = useSignal<Array<PartOfSpeech>>([]);
   const selectedWord = useSignal<Word>();
   useStylesScoped$(scopedStyles);
 
-  useVisibleTask$(async () => {
-    words.value = JSON.parse(await invoke("get_words"));
+  useTask$(() => {
+    console.log("here");
+    const intervalId = setInterval(async () => {
+      if (isServer) return;
+      words.value = JSON.parse(await invoke("get_words"));
+      partsOfSpeech.value = JSON.parse(await invoke("get_parts_of_speech"));
+    }, 10);
+    return () => clearInterval(intervalId);
   });
 
-  const updateWord = $((event: InputEvent, el: HTMLDivElement) => {
+  const updateWord = $((event: InputEvent) => {
     if (selectedWord.value == null) return;
     const input = event.target as HTMLElement;
     if (input.id === "conWord") {
-      console.log("here");
       selectedWord.value.conWord = (input as HTMLInputElement).value;
     }
   });
 
-  if (words.value == null) {
-    words.value = [];
-  }
+  const addWord = $((classId: number) => {
+    const word = { conWord: "New Word", wordTypeId: classId } as Word;
+    words.value.push(word);
+  });
 
   return (
-    <div style="display:block; overflow:hidden">
+    <div style="display:block; overflow:hidden;">
       <Sidebar title="Lexicon">
-        <SidebarItem title="Verbs" noTopBorder={true}>
-          {words.value.map((word, i) => (
-            <SidebarRow
-              onClick$={() => {
-                selectedWord.value = word;
-              }}
-              key={word.wordId}
-              label={word.conWord}
-            />
-          ))}
-        </SidebarItem>
-        <SidebarItem title="Noun"></SidebarItem>
-        <SidebarItem title="Adjective"></SidebarItem>
+        {partsOfSpeech.value.map((PoS, i) => (
+          <SidebarItem
+            key={PoS.classId}
+            title={PoS.className}
+            noTopBorder={i === 0}
+            //TODO: Make adding words work.
+            onAddWord$={() => addWord(PoS.classId)}
+          >
+            {words.value.map(
+              (word) =>
+                word.wordTypeId === PoS.classId && (
+                  <SidebarRow
+                    onClick$={() => {
+                      selectedWord.value = word;
+                    }}
+                    key={word.wordId}
+                    label={word.conWord}
+                  />
+                ),
+            )}
+          </SidebarItem>
+        ))}
       </Sidebar>
       {selectedWord.value && (
-        <div style="float:left; position: absolute; display: block; white-space:normal; height:100%; width:calc(100vw - 316px)); margin-left:268px;">
-          <h2 class="subtitle">{selectedWord.value.conWord}</h2>
-          <div onInput$={updateWord}>
-            <label>Conlang Word: </label>
-            <InputBox
-              value={selectedWord.value.conWord}
-              id="conWord"
-              type="text"
-            />
-            <br />
-            <label>Native Language Word</label>
-            <InputBox
-              value={selectedWord.value.localWord}
-              id="localWord"
-              type="text"
-            />
-            <br />
-            <SelectDropdown />
-            <br />
-            <label>Pronunciation</label>
-            <InputBox
-              value={selectedWord.value.pronunciation}
-              id="pronunciation"
-              type="text"
-            />
-            <label>Definition</label>
-            <MarkdownEntry value={selectedWord.value.definition} />
-          </div>
-        </div>
+        <WordEditor
+          onInput$={updateWord}
+          selectedWord={selectedWord.value}
+          partsOfSpeech={partsOfSpeech.value}
+        />
       )}
     </div>
   );

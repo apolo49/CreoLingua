@@ -3,6 +3,8 @@
 mod file_contents;
 mod loading_and_saving;
 mod words;
+mod parts_of_speech;
+
 #[cfg(target_os = "macos")]
 use tauri::{
     menu::{AboutMetadata, Menu, MenuBuilder, MenuItemBuilder, PredefinedMenuItem, SubmenuBuilder},
@@ -29,6 +31,7 @@ pub fn run() {
                             }
                             let fp = file_path.unwrap();
                             println!("{:?}", fp);
+                            // loading_and_saving::save_to_file(app.state(), fp.as_os_str().to_str().unwrap());
 
                             // TODO: discover how to store file data before saving
                             // loading_and_saving::save_to_file();
@@ -39,7 +42,7 @@ pub fn run() {
             Ok(())
         })
         .manage(file_contents::FileContents {
-            contents: serde_json::Value::default().into(),
+            contents: serde_json::from_str("{}").unwrap(),
         })
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_os::init())
@@ -47,7 +50,8 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             loading_and_saving::open_language,
             loading_and_saving::save_to_file,
-            words::get_words
+            words::get_words,
+            parts_of_speech::get_parts_of_speech,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

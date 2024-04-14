@@ -73,6 +73,14 @@ h3 {
   z-index: 1000;
 }
 
+.action-label:not(.disabled):hover {
+  background-color: rgba(90, 93, 94, 0.31);
+}
+
+.action-item .action-label:hover:not(.disabled) {
+  outline-offset: -1px;
+}
+
 .action-item .codicon {
   align-items: center;
   display: flex;

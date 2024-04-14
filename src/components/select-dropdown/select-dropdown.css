@@ -15,11 +15,9 @@
 .select-dropdown-header {
   display: flex;
   border: 1px solid var(--select-dropdown-border);
-  box-shadow: 0 0 8px 2px var(--select-dropdown-shadow);
   border-radius: 6px;
   width: var(--select-width);
   margin: auto;
-  padding: 8px 6px 6px;
 }
 
 .select-dropdown-and-message {

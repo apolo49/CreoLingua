@@ -12,7 +12,7 @@ type SidebarProps = PropsOf<"div"> & {
 export const Sidebar = component$((props: SidebarProps) => {
   useStylesScoped$(scopedStyle1);
 
-  const left = props.left || 48;
+  // const left = props.left || 48;
 
   return (
     <aside

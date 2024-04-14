@@ -1,4 +1,4 @@
-import { $, component$, useSignal, useStyles$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import {
   Select,
   SelectListbox,
@@ -8,10 +8,13 @@ import {
   SelectValue,
 } from "@qwik-ui/headless";
 import scopedStyle from "./select-dropdown.css?inline";
+import { type PartOfSpeech } from "~/interfaces/part-of-speech";
 
-export const SelectDropdown = component$(() => {
-  const users: Array<string> = ["1", "2", "3"];
+interface SelectDropdownProps {
+  partsOfSpeech: Array<PartOfSpeech>;
+}
 
+export const SelectDropdown = component$((props: SelectDropdownProps) => {
   useStyles$(scopedStyle);
   return (
     <Select class="select-dropdown-widget show-file-icons" aria-label="hero">
@@ -28,10 +31,9 @@ export const SelectDropdown = component$(() => {
       <SelectPopover class="select-dropdown-popover">
         <div class="select-dropdown-listbox">
           <SelectListbox class="select-dropdown-list">
-            {/* {users.map((user) => ( */}
-            <SelectOption>1</SelectOption>
-            <SelectOption>2</SelectOption>
-            {/* ))} */}
+            {props.partsOfSpeech.map((PoS: PartOfSpeech) => (
+              <SelectOption key={PoS.classId}>{PoS.className}</SelectOption>
+            ))}
           </SelectListbox>
         </div>
       </SelectPopover>

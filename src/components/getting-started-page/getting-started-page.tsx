@@ -1,6 +1,6 @@
 import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 import scopedStyle from "./getting-started-page.css?inline";
-import { Link } from "@builder.io/qwik-city";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 import { appConfigDir } from "@tauri-apps/api/path";
 import { invoke } from "@tauri-apps/api/core";
 import { open } from "@tauri-apps/plugin-dialog";
@@ -8,6 +8,7 @@ import { open } from "@tauri-apps/plugin-dialog";
 export const GettingStartedPage = component$(() => {
   const file_contents = useSignal("");
   useStylesScoped$(scopedStyle);
+  const nav = useNavigate();
 
   return (
     <div class="getting-started">
@@ -52,6 +53,8 @@ export const GettingStartedPage = component$(() => {
                       filePath: selected.path,
                     });
                     console.log(file_contents.value);
+                    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+                    if (file_contents.value != null) nav("/lexicon");
                   }}
                 >
                   <span class="codicon codicon-folder-opened icon-widget"></span>
