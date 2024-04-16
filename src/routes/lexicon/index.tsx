@@ -23,21 +23,12 @@ export default component$(() => {
   useStylesScoped$(scopedStyles);
 
   useTask$(() => {
-    console.log("here");
     const intervalId = setInterval(async () => {
       if (isServer) return;
       words.value = JSON.parse(await invoke("get_words"));
       partsOfSpeech.value = JSON.parse(await invoke("get_parts_of_speech"));
     }, 10);
     return () => clearInterval(intervalId);
-  });
-
-  const updateWord = $((event: InputEvent) => {
-    if (selectedWord.value == null) return;
-    const input = event.target as HTMLElement;
-    if (input.id === "conWord") {
-      selectedWord.value.conWord = (input as HTMLInputElement).value;
-    }
   });
 
   const addWord = $((classId: number) => {
@@ -73,8 +64,7 @@ export default component$(() => {
       </Sidebar>
       {selectedWord.value && (
         <WordEditor
-          onInput$={updateWord}
-          selectedWord={selectedWord.value}
+          selectedWord={selectedWord}
           partsOfSpeech={partsOfSpeech.value}
         />
       )}

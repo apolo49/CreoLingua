@@ -1,0 +1,33 @@
+.text-button {
+  align-items: center;
+  border: 1px solid var(--var, transparent);
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* display: flex; */
+  justify-content: center;
+  line-height: 18px;
+  padding: 4px;
+  text-align: center;
+  width: 100%;
+  color: #ffffff;
+  background-color: #0078d4;
+}
+
+.text-button:hover {
+  text-decoration: none !important;
+  background-color: #026ec1;
+}
+
+.text-button:focus {
+  outline-offset: 2px !important;
+  opacity: 1;
+  outline-color: #026ec1;
+  outline-style: solid;
+  outline-width: 1px;
+}
+
+.button-container {
+  max-width: 300px;
+  width: 100%;
+}
