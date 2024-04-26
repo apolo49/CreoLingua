@@ -1,12 +1,29 @@
+/* Title Bar */
+
 .title-bar {
   top: 0px;
   height: 35px;
-  width: 100%;
+  width: 100vw;
   border-bottom: 1px solid rgb(43, 43, 43);
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.title-bar-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+  /* user-select: none;
+  -webkit-user-select: none; */
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  line-height: 22px;
 }
 
 .title-bar[data-active="true"] {
@@ -17,4 +34,80 @@
 .title-bar[data-active="false"] {
   background-color: rgb(31, 31, 31);
   color: rgb(157, 157, 157);
+}
+
+.menubar {
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Title Bar Left */
+
+.title-bar-left > .appicon {
+  flex-shrink: 1;
+  order: 1;
+  position: relative;
+  z-index: 2500;
+}
+
+.title-bar-left > .menubar {
+  flex-wrap: nowrap;
+  min-width: 36px;
+  order: 2;
+  z-index: 2500;
+}
+
+.menubar > .menubar-menu-button {
+  align-items: center;
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  -webkit-app-region: no-drag;
+  zoom: 1;
+  outline: 0 !important;
+  white-space: nowrap;
+}
+
+.menubar-menu-title {
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+/* Title Bar Right */
+
+.title-bar-right {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  flex-grow: 2;
+  justify-content: flex-end;
+  min-width: min-content;
+  order: 2;
+  width: 20%;
+}
+
+.window-controls {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
+  z-index: 3000;
+  -webkit-app-region: no-drag;
+  height: 100%;
+}
+
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.titlebar-button:hover {
+  background: #5bbec3;
 }
