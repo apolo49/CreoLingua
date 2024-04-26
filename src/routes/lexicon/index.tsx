@@ -31,9 +31,11 @@ export default component$(() => {
     return () => clearInterval(intervalId);
   });
 
-  const addWord = $((classId: number) => {
+  const addWord = $(async (classId: number) => {
+    console.log("Here");
     const word = { conWord: "New Word", wordTypeId: classId } as Word;
     words.value.push(word);
+    await invoke("add_word", { word: word });
   });
 
   return (

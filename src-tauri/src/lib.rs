@@ -51,6 +51,7 @@ pub fn run() {
             loading_and_saving::open_language,
             loading_and_saving::save_to_file,
             words::get_words,
+            words::add_word,
             parts_of_speech::get_parts_of_speech,
         ])
         .run(tauri::generate_context!())

@@ -1,5 +1,5 @@
 import type { PropsOf, QRLEventHandlerMulti } from "@builder.io/qwik";
-import { component$, Slot, useSignal, useStyles$ } from "@builder.io/qwik";
+import { $, component$, Slot, useSignal, useStyles$ } from "@builder.io/qwik";
 import {
   AccordionItem,
   AccordionHeader,
@@ -12,18 +12,21 @@ type SidebarItemProps = PropsOf<"div"> & {
   title: string;
   noTopBorder?: boolean | undefined;
   onAddWord$?:
-    | ((event: PointerEvent, element: HTMLAnchorElement) => never)
-    | QRLEventHandlerMulti<PointerEvent, HTMLAnchorElement>;
+    | ((event: PointerEvent, element: HTMLElement) => never)
+    | QRLEventHandlerMulti<PointerEvent, HTMLElement>;
 };
 
 export const SidebarItem = component$((props: SidebarItemProps) => {
-  const id = `${props.title}-collapsible`;
   const noTopBorder = props.noTopBorder || false;
   const actionHovered = useSignal<boolean>(false);
 
+  const test = $(() => {
+    console.log("here");
+  });
+
   useStyles$(scopedStyle);
   return (
-    <AccordionItem data-collapsible id={id}>
+    <AccordionItem data-collapsible>
       <AccordionHeader>
         <AccordionTrigger
           class="sidebar-header"
@@ -34,9 +37,8 @@ export const SidebarItem = component$((props: SidebarItemProps) => {
           <span>{props.title}</span>
           <div class="actions">
             <ul class="actions-container">
-              <li class="action-item menu-entry">
+              <li onClick$={test} class="action-item menu-entry">
                 <span
-                  onClick$={props.onAddWord$}
                   onMouseEnter$={() => (actionHovered.value = true)}
                   onMouseLeave$={() => (actionHovered.value = false)}
                   class="action-label codicon codicon-new-file"

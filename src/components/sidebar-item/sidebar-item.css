@@ -64,12 +64,12 @@ h3 {
   justify-content: center;
   position: relative;
   margin-right: 4px;
+  pointer-events: auto !important;
 }
 
 .action-label {
   border-radius: 5px;
   padding: 2px;
-  pointer-events: all;
   z-index: 1000;
 }
 

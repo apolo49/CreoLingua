@@ -22,8 +22,8 @@ pub fn get_words(state: tauri::State<FileContents>) -> String {
 }
 
 #[tauri::command]
-pub fn add_word(state: tauri::State<FileContents>, word: serde_json::Value) {
-    let _ = &state
+pub fn add_word(state: tauri::State<FileContents>, word: String) {
+    let words = &state
         .contents
         .lock()
         .unwrap()
@@ -32,4 +32,6 @@ pub fn add_word(state: tauri::State<FileContents>, word: serde_json::Value) {
         .expect("Attempt to access uninitialised dictionary.")
         .lexicon
         .word;
+    println!("Word: {}", word);
+    // words.push(word);
 }
